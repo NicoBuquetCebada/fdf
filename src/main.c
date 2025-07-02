@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/01 14:36:20 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/02 14:06:22 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int	main(void) {
 	char	*map;
+	int		*size;
 
 	map = read_file("./test_maps/42.fdf");
-	printf("\n%s", map);
+	size = map_size(map);
+	printf("\n%s\nsize: %d, %d", map, size[0], size[1]);
 }
 
 /* static void ft_error(void)
