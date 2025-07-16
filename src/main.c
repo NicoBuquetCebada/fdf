@@ -6,19 +6,41 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/02 14:06:22 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/16 16:17:47 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
+void	print_map(t_point	**map, int size)
+{
+	int i = 0;
+	int j;
+	while (map[i]) {
+		j = 0;
+		while (j < size) {
+			printf("%2d ", map[i][j].z);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+}
+
 int	main(void) {
 	char	*map;
 	int		*size;
+	t_point	**parsed;
 
 	map = read_file("./test_maps/42.fdf");
 	size = map_size(map);
-	printf("\n%s\nsize: %d, %d", map, size[0], size[1]);
+	
+	printf("\n%s\nsize: %d, %d\n\n", map, size[0], size[1]);
+	parsed = map_parser(map);
+	print_map(parsed, size[0]);
+	free_map(parsed, size[0]);
+	free(size);
+	free(map);
 }
 
 /* static void ft_error(void)
