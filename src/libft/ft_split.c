@@ -19,10 +19,10 @@ char	**ft_freearr(char **dst)
 	i = 0;
 	while (dst[i])
 	{
-		free (dst[i]);
+		free(dst[i]);
 		i++;
 	}
-	free (dst);
+	free(dst);
 	return (dst = NULL);
 }
 
@@ -47,8 +47,8 @@ static unsigned int	ft_wrdcnt(const char *s, char c)
 	return (cntr);
 }
 
-static char	**ft_splitcpy(char **dst, const char *s,
-	unsigned int start, unsigned int end)
+static char	**ft_splitcpy(char **dst, const char *s, unsigned int start,
+		unsigned int end)
 {
 	unsigned int	len;
 	unsigned int	i;

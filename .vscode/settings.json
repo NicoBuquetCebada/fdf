@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"stdlib.h": "c",
-		"mlx42.h": "c"
+		"mlx42.h": "c",
+		"map": "c",
+		"format": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 11:56:58 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/16 15:29:02 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:01:27 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_point
 	char	*color;
 }			t_point;
 
+void		custom_error();
+
 char		*buffer_alloc(void);
 char		*buffer_concat(char *old_buf, char *tmp, int total, int bytes);
 char		*read_map(int fd);
@@ -44,6 +46,5 @@ int			*map_size(char *map);
 t_point		**map_ini(char *map);
 t_point		new_point(int x, int y, int z, char *color);
 t_point		**map_parser(char *map);
-
 
 #endif
