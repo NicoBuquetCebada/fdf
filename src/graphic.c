@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:56:40 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/18 17:09:07 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/18 19:05:14 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ static void get_iso_y(int x, int y, int z, int *iso_y, int centered_start_y)
 {
 	x *= SCALE;
 	y *= SCALE;
-	z *= 2;
+	z *= 1;
 	*iso_y = (x + y) * 5 / 10 - z + centered_start_y;
 }
 
@@ -111,7 +111,7 @@ static void get_centered_start(int map_w, int map_h, int map_a, int *cx, int *cy
 {
 	map_w *= SCALE;
 	map_h *= SCALE;
-	map_a *= 2;
+	map_a *= 1;
 	*cx = (map_w - map_h) * 866 / 1000;
 	*cy = (map_w + map_h) * 5 / 10 - map_a;
 	*cx = (WIDTH - *cx) / 2;

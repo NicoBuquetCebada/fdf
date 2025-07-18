@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 11:56:58 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/18 17:20:31 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/18 19:08:52 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <string.h>
 # include <unistd.h>
 
-# define SCALE 1
+# define SCALE 4
 # define WIDTH 1500
 # define HEIGHT 900
 # define BPP sizeof(int)
@@ -46,6 +46,7 @@ void		free_map(t_point **map, int size);
 int			*map_size(char *map);
 t_point		**map_ini(char *map);
 t_point		new_point(int x, int y, int z, char *color);
+//void		while_wspace_inc(int *i, char *map);
 t_point		**map_parser(char *map);
 t_point		**parser(char *fileno);
 
