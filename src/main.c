@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/16 17:04:54 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/18 17:24:36 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,65 +36,23 @@ int	main(int ac, char *av[])
 	char	*file;
 	int		*size;
 	t_point	**map;
+//	int		success;
 
 	if (ac != 2)
 		custom_error();
 	file = read_file(av[1]);
+	map = parser(file);
 	size = map_size(file);
-	map = map_parser(file);
-	print_map(map, size[0]);
+ 	printf("\nx: %d | y: %d\n", size[0], size[1]);
+/*	print_map(map, size[0]);
+	success = mlx(map, size);
+	free(file);
+	free_map(map, size[0]);
+	free(size);
+	if (!success)
+		return (1);
+	return (0); */
 }
-
-/* static void ft_error(void)
-{
-	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
-}
-
-static void	ft_hook(void* param)
-{
-	const mlx_t* mlx = param;
-	printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
-}
-
- int main(void)
-{
-	// MLX allows you to define its core behaviour before startup.
-	mlx_set_setting(MLX_MAXIMIZED, false);
-	mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "window", false);
-	if (!mlx)
-		ft_error();
-
-
-	// Create and display the image.
-	mlx_image_t* img = mlx_new_image(mlx, 256, 256);
-	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
-		ft_error();
-
-	// Even after the image is being displayed, we can still modify the buffer.
-
-	mlx_put_pixel(img, mlx->width/2, mlx->height/2, 0xFF0000FF);
-
-	int i = 0;
-	while (i < 50) {
-		mlx_put_pixel(img, mlx->width/2 + i, mlx->height/2, 0xFF0000FF);
-		mlx_put_pixel(img, mlx->width/2, mlx->height/2 + i, 0xFF0000FF);
-		i++;
-	}
-	while (i >= 0) {
-		mlx_put_pixel(img, mlx->width/2 + i, mlx->height/2 + 50, 0xFF0000FF);
-		mlx_put_pixel(img, mlx->width/2 + 50, mlx->height/2 + i, 0xFF0000FF);
-		i--;
-	}
-
-
-	// Register a hook and pass mlx as an optional param.
-	// NOTE: Do this before calling mlx_loop!
-	mlx_loop_hook(mlx, ft_hook, mlx);
-	mlx_loop(mlx);
-	mlx_terminate(mlx);
-	return (EXIT_SUCCESS);
-} */
 
 // USE OF COLOR
 

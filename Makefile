@@ -4,7 +4,7 @@ SRCS =	$(shell find ./src -iname "*.c")
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wunreachable-code -Ofast
+CFLAGS =  -Wunreachable-code -Ofast
 
 LIBMLX	:= ./lib/MLX42
 HEADERS	:= -I ./include -I $(LIBMLX)/include

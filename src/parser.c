@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:38:10 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/16 16:43:44 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:04:53 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ static t_point	insert_values(int x, int y, char **point_values)
 	if (!point_values[1])
 		dst = new_point(x, y, ft_atoi(point_values[0]), NULL);
 	else
-	{
 		dst = new_point(x, y, ft_atoi(point_values[0]), point_values[1]);
-		free(point_values[1]);
-	}
 	free(point_values[0]);
 	free(point_values);
 	return (dst);

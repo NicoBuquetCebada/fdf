@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:10:27 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/16 17:03:41 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:42:02 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,15 @@ char	*read_file(char *file)
 		exit(EXIT_FAILURE);
 	}
 	map = read_map(fd);
+	return (map);
+}
+
+t_point	**parser(char *file)
+{
+	t_point	**map;
+
+	map = map_parser(file);
+	if (!map)
+		custom_error();
 	return (map);
 }

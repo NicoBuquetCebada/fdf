@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:42:03 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/16 16:43:27 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:06:30 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,7 @@ void	free_map(t_point **map, int col)
 		j = 0;
 		while (j < col)
 		{
-			if (map[i][j].color)
-			{
-				free_point(&map[i][j]);
-				map[i][j].color = NULL;
-			}
+			free_point(&map[i][j]);
 			j++;
 		}
 		free(map[i]);
@@ -90,9 +86,9 @@ int	*map_size(char *map)
 
 t_point	**map_ini(char *map)
 {
-	t_point	**dst;
-	int		*size;
-	int		i;
+	t_point **dst;
+	int *size;
+	int i;
 
 	size = map_size(map);
 	if (!size)
@@ -105,7 +101,7 @@ t_point	**map_ini(char *map)
 	{
 		dst[i] = malloc((size[0] + 1) * sizeof(t_point));
 		if (!dst)
-			return (dst[i + 1] = NULL, free_map(dst, size[0]), NULL);
+			return (NULL);
 		i++;
 	}
 	dst[i] = NULL;
