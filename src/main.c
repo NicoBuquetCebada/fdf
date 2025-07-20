@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/18 18:48:17 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:55:48 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,19 @@ void	print_map(t_point **map, int size)
 int	main(int ac, char *av[])
 {
 	char	*file;
-	int		*size;
-	t_point	**map;
-	int		success;
+	t_map	map;
 
 	if (ac != 2)
-		custom_error();
+		ft_error();
 	file = read_file(av[1]);
-	map = parser(file);
-	size = map_size(file);
-	print_map(map, size[0]);
-	printf("\nx: %d | y: %d\n", size[0], size[1]);
-	success = mlx(map, size);
+	map = start_map(file);
+	
+ 	print_map(map.map, map.width);
+	printf("\nx: %d | y: %d\n", map.width, map.height);
+	
+	mlx(map);
 	free(file);
-	free_map(map, size[0]);
-	free(size);
-	if (!success)
-		return (1);
-	return (0);
+	free_map(map.map, map.width);
 }
 
 // USE OF COLOR

@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 11:56:58 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/18 19:08:52 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/20 19:52:42 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@
 # include <string.h>
 # include <unistd.h>
 
-# define SCALE 4
-# define WIDTH 1500
-# define HEIGHT 900
+# define SCALE 5
+# define Z 2
+# define WIDTH 1920
+# define HEIGHT 1080
 # define BPP sizeof(int)
+
 
 typedef struct s_point
 {
@@ -34,7 +36,18 @@ typedef struct s_point
 	char	*color;
 }			t_point;
 
-void		custom_error(void);
+typedef struct s_map
+{
+	t_point	**map;
+	int		width;
+	int		height;
+	int		max_z;
+	int		scale;
+}			t_map;
+
+void		custom_size_error(char *file);
+void		custom_map_error(char *file, int *size);
+void		ft_error(void);
 
 char		*buffer_alloc(void);
 char		*buffer_concat(char *old_buf, char *tmp, int total, int bytes);
@@ -44,12 +57,13 @@ char		*read_file(char *file);
 void		free_point(t_point *point);
 void		free_map(t_point **map, int size);
 int			*map_size(char *map);
-t_point		**map_ini(char *map);
+t_point		**map_ini(char *map, int *size);
 t_point		new_point(int x, int y, int z, char *color);
-//void		while_wspace_inc(int *i, char *map);
-t_point		**map_parser(char *map);
-t_point		**parser(char *fileno);
+// void		while_wspace_inc(int *i, char *map);
+t_point		**map_parser(char *map, int *size);
 
-int			mlx(t_point **map, int *size);
+t_map		start_map(char *file);
+
+int			mlx(t_map map);
 
 #endif

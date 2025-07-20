@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:42:03 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/18 18:47:39 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/19 22:37:55 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,17 @@ int	*map_size(char *map)
 		while (map[i] && map[i] != ' ' && map[i] != '\t' && map[i] != '\n')
 			i++;
 	}
+	if (size[1] == 0)
+		return (free(size), NULL);
 	size[0] /= size[1];
 	return (size);
 }
 
-t_point	**map_ini(char *map)
+t_point	**map_ini(char *map, int *size)
 {
 	t_point **dst;
-	int *size;
 	int i;
 
-	size = map_size(map);
-	if (!size)
-		return (NULL);
 	dst = malloc((size[1] + 1) * sizeof(t_point *));
 	if (!dst)
 		return (NULL);
@@ -102,6 +100,5 @@ t_point	**map_ini(char *map)
 		i++;
 	}
 	dst[i] = NULL;
-	free(size);
 	return (dst);
 }
