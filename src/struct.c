@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:42:03 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/19 22:37:55 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 11:14:20 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,17 @@ int	*map_size(char *map)
 	i = 0;
 	while (map[i])
 	{
-		while (map[i] && (map[i] == ' ' || map[i] == '\t'))
+		while (map[i] && (map[i] == ' ' || map[i] == '\t' || map[i] == '\n'))
+		{
+			if (map[i] == '\n')
+				size[1]++;
 			i++;
-		if (map[i++] == '\n' || (!map[i] && map[i - 1] != '\n'))
-			size[1]++;
+		}
 		size[0]++;
 		while (map[i] && map[i] != ' ' && map[i] != '\t' && map[i] != '\n')
 			i++;
+		if (!map[i] && map[i - 1] != '\n')
+			size[1]++;
 	}
 	if (size[1] == 0)
 		return (free(size), NULL);

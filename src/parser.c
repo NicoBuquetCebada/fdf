@@ -6,25 +6,13 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:38:10 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/18 22:07:24 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 10:58:00 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-/* static void	inc_y(char *map, int *i, int *x, int *y)
-{
-	if (map[*i] == '\n')
-	{
-		(*y)++;
-		*x = 0;
-		(*i)++;
-	}
-	else if (!map[*i] && map[*i - 1] != '\n')
-		(*y)++;
-} */
-
-static void	while_wspace_inc(int *i, int *y, int *x, char *map)
+void	while_wspace_inc(int *i, int *y, int *x, char *map)
 {
 	while (map[*i] && (map[*i] == ' ' || map[*i] == '\t' || map[*i] == '\n'))
 	{
@@ -33,33 +21,15 @@ static void	while_wspace_inc(int *i, int *y, int *x, char *map)
 			(*y)++;
 			*x = 0;
 		}
-		else if (!map[*i] && map[*i - 1] != '\n')
-		{
-			(*y)++;
-			break ;
-		}
 		(*i)++;
 	}
 }
 
-static void	while_not_wspace_inc(int *i, char *map)
+void	while_not_wspace_inc(int *i, char *map)
 {
 	while (map[*i] && map[*i] != ' ' && map[*i] != '\t' && map[*i] != '\n')
 		(*i)++;
 }
-
-/* static t_point	insert_values(int x, int y, char **point_values)
-{
-	t_point	dst;
-
-	if (!point_values[1])
-		dst = new_point(x, y, ft_atoi(point_values[0]), NULL);
-	else
-		dst = new_point(x, y, ft_atoi(point_values[0]), point_values[1]);
-	free(point_values[0]);
-	free(point_values);
-	return (dst);
-} */
 
 static t_point	parse_values(char *str, int len, int x, int y)
 {
@@ -73,7 +43,7 @@ static t_point	parse_values(char *str, int len, int x, int y)
 	if (comma)
 	{
 		*comma = '\0';
-		dst = new_point(x, y, ft_atoi(str), comma + 1);
+		dst = new_point(x, y, ft_atoi(str), ft_substr(comma + 1, 0, len));
 	}
 	else 
 		dst = new_point(x, y, ft_atoi(str), NULL);

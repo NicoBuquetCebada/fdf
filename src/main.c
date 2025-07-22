@@ -6,11 +6,20 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/19 22:55:48 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 12:20:51 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+
+void debug_color(uint32_t color) {
+    printf("A:%02X B:%02X G:%02X R:%02X\n",
+        (color >> 24) & 0xFF,
+        (color >> 16) & 0xFF,
+        (color >> 8) & 0xFF,
+        color & 0xFF
+    );
+}
 
 void	print_map(t_point **map, int size)
 {
@@ -24,7 +33,7 @@ void	print_map(t_point **map, int size)
 		j = 0;
 		while (j < size)
 		{
-			printf("%2d ", map[i][j].z);
+			debug_color(strtohex(map[i][j].color));
 			j++;
 		}
 		printf("\n");
@@ -42,8 +51,8 @@ int	main(int ac, char *av[])
 	file = read_file(av[1]);
 	map = start_map(file);
 	
- 	print_map(map.map, map.width);
-	printf("\nx: %d | y: %d\n", map.width, map.height);
+// 	print_map(map.map, map.width);
+	printf("\nx: %d | y: %d | scale: %d\n", map.width, map.height, map.scale);
 	
 	mlx(map);
 	free(file);
