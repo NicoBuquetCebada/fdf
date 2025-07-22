@@ -6,11 +6,11 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:47:22 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/18 20:29:01 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:56:15 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "fdf.h"
 
 void	custom_map_error(char *file, int *size)
 {

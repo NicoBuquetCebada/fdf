@@ -6,11 +6,11 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 12:20:51 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:49:26 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "fdf.h"
 
 void debug_color(uint32_t color) {
     printf("A:%02X B:%02X G:%02X R:%02X\n",

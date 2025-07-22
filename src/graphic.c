@@ -6,11 +6,11 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:56:40 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 13:31:23 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 18:01:35 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "fdf.h"
 
 mlx_t	*start_mlx(void)
 {
@@ -81,25 +81,17 @@ static void	line_draw(int x0, int y0, int x1, int y1, mlx_image_t *img,
 
 static void	get_iso_x(int x, int y, int *iso_x, int centered_start_x)
 {
-	//	x *= SCALE;
-	//	y *= SCALE;
 	*iso_x = (x - y) * 866 / 1000 + centered_start_x;
 }
 
 static void	get_iso_y(int x, int y, int z, int *iso_y, int centered_start_y)
 {
-	//	x *= SCALE;
-	//	y *= SCALE;
-	//	z *= Z;
 	*iso_y = (x + y) / 2 - z + centered_start_y;
 }
 
 static void	get_centered_start(int map_w, int map_h, int map_a, int *cx,
 		int *cy)
 {
-	//	map_w *= SCALE;
-	//	map_h *= SCALE;
-	//	map_a *= Z;
 	*cx = (map_w - map_h) * 866 / 1000;
 	*cy = (map_w + map_h) / 2 - map_a;
 	*cx = (WIDTH - *cx) / 2;

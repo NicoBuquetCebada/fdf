@@ -6,13 +6,11 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:10:27 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/18 20:23:31 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 18:02:20 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
-
-#define BUF_SIZE 8192
+#include "fdf.h"
 
 char	*buffer_alloc(void)
 {
@@ -44,7 +42,7 @@ char	*read_map(int fd)
 {
 	char	*buffer;
 	char	*new_buf;
-	char	tmp[BUF_SIZE + 1];
+	char	tmp[8192 + 1];
 	int		bytes;
 	int		total;
 
@@ -52,7 +50,7 @@ char	*read_map(int fd)
 	buffer = buffer_alloc();
 	if (!buffer)
 		return (NULL);
-	while ((bytes = read(fd, tmp, BUF_SIZE)) > 0)
+	while ((bytes = read(fd, tmp, 8192)) > 0)
 	{
 		tmp[bytes] = '\0';
 		new_buf = buffer_concat(buffer, tmp, total, bytes);

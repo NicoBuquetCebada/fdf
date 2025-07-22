@@ -6,11 +6,11 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:42:03 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 11:14:20 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:56:19 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "fdf.h"
 
 void	free_point(t_point *point)
 {
@@ -87,7 +87,7 @@ int	*map_size(char *map)
 	return (size);
 }
 
-t_point	**map_ini(char *map, int *size)
+t_point	**map_ini(int *size)
 {
 	t_point **dst;
 	int i;

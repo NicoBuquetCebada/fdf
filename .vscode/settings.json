@@ -5,6 +5,7 @@
 		"map": "c",
 		"format": "c",
 		"cstdint": "c",
-		"charconv": "c"
+		"charconv": "c",
+		"fdf.h": "c"
 	}
 }

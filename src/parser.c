@@ -6,11 +6,11 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:38:10 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 10:58:00 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:56:11 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "fdf.h"
 
 void	while_wspace_inc(int *i, int *y, int *x, char *map)
 {
@@ -59,7 +59,7 @@ t_point	**map_parser(char *map, int *size)
 	int		y;
 	int		start;
 
-	dst = map_ini(map, size);
+	dst = map_ini(size);
 	if (!dst)
 		return (NULL);
 	i = 0;

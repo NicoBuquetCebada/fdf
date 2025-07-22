@@ -6,11 +6,11 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 22:27:48 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 13:04:24 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:56:27 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "fdf.h"
 
 static void	max_z(t_map *dst, t_point **map, int width)
 {
