@@ -32,6 +32,7 @@ $(NAME): $(OBJS) $(LIBFT)
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
+	$(MAKE) -C $(LIBFTDIR) clean
 
 
 fclean: clean

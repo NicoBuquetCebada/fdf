@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:56:40 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 18:01:35 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/22 20:05:21 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@ mlx_image_t	*get_image(mlx_t *mlx, int width, int heigth)
 		return (NULL);
 	return (img);
 }
-
-int	absolute(int n)
-{
-	if (n > 0)
-		return (n);
-	return (n * -1);
-}
-
 static int	direction(int c0, int c1)
 {
 	if (c0 < c1)
@@ -57,8 +49,8 @@ static void	line_draw(int x0, int y0, int x1, int y1, mlx_image_t *img,
 	int	err;
 	int	e2;
 
-	dx = absolute(x1 - x0);
-	dy = absolute(y1 - y0);
+	dx = ft_absolute(x1 - x0);
+	dy = ft_absolute(y1 - y0);
 	sx = direction(x0, x1);
 	sy = direction(y0, y1);
 	err = dx - dy;
@@ -98,41 +90,13 @@ static void	get_centered_start(int map_w, int map_h, int map_a, int *cx,
 	*cy = (HEIGHT - *cy) / 2;
 }
 
-unsigned int	ft_strtoul_hex(const char *str)
-{
-	unsigned int	result;
-	int				i;
-	char			c;
-		unsigned int digit;
-
-	result = 0;
-	i = 0;
-	if (str[0] == '0' && (str[1] == 'x' || str[1] == 'X'))
-		i = 2;
-	while (str[i])
-	{
-		c = str[i];
-		if (c >= '0' && c <= '9')
-			digit = c - '0';
-		else if (c >= 'a' && c <= 'f')
-			digit = 10 + (c - 'a');
-		else if (c >= 'A' && c <= 'F')
-			digit = 10 + (c - 'A');
-		else
-			break ;
-		result = (result << 4) | digit;
-		i++;
-	}
-	return (result);
-}
-
 uint32_t	strtohex(const char *str)
 {
 	uint32_t	color;
 
 	if (!str || str[0] != '0' || (str[1] != 'x' && str[1] != 'X'))
 		return (0xFFFFFFFF);
-	color = (0xFF << 24) | ft_strtoul_hex(str);
+	color = (0xFF << 24) | ft_strtoulhex(str);
 	return (((color >> 16) << 24) | ((color >> 8 & 0xFF) << 16) | ((color & 0xFF) << 8) | 0xFF);
 }
 
