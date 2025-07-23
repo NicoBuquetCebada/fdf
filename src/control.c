@@ -6,11 +6,23 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:47:22 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/23 11:49:21 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/23 14:04:06 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int	check_file_ext(char *fileno)
+{
+	char	*dot;
+
+	dot = ft_strrchr(fileno, '.');
+	if (!dot)
+		return (0);
+	if (ft_strncmp(dot + 1, "fdf", 3) != 0)
+		return (0);
+	return (1);
+}
 
 void	custom_map_error(char *file, int *size)
 {

@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 11:56:58 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/23 13:11:13 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/23 14:04:31 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_map
 	int		scale;
 }			t_map;
 
+int			check_file_ext(char *fileno);
 void		custom_size_error(char *file);
 void		custom_map_error(char *file, int *size);
 void		ft_error(void);

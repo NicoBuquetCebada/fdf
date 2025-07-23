@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 19:54:07 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/23 11:39:42 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/23 14:01:56 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char			**ft_split(char const *s, char c);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_atoi(const char *nptr);
 char			*ft_strchr(const char *s, int c);
+char			*ft_strrchr(const char *s, int c);
 int				ft_absolute(int n);
 unsigned int	ft_strtoulhex(const char *str);
 int				ft_max(int a, int b);

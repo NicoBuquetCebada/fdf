@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: nico <nico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/23 14:05:30 by nbuquet-         ###   ########.fr       */
+/*   Created: 2024/09/19 18:24:35 by nico              #+#    #+#             */
+/*   Updated: 2024/09/30 01:56:01 by nico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int ac, char *av[])
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*file;
-	t_map	map;
+	char	*tmp;
+	int		i;
 
-	if (ac != 2)
-		ft_error();
-	if (!check_file_ext(av[1]))
-		ft_error();
-	file = read_file(av[1]);
-	map = start_map(file);
-	mlx(map);
-	free(file);
-	free_map(map.map, map.width);
+	tmp = NULL;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			tmp = (char *)&s[i];
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (tmp);
 }
