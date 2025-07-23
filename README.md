@@ -1,7 +1,7 @@
 # <img width="27" heigth="27" src="https://raw.githubusercontent.com/kube/vscode-42header/master/42.png"> Fdf
 This 42 proyect have the purpose of teaching basic graphic programming in C with the MinilibX library.
 
-The goal of FdF is to create a C program capable of reading .fdf files, which contain x, y, z coordinates corresponding to a map that must be rendered graphically.
+The goal of FdF is to create a program capable of reading .fdf files, which contain x, y, z coordinates corresponding to a map that must be rendered graphically.
 
 These files may also include color codes linked to the coordinates, which must also be interpreted.
 
