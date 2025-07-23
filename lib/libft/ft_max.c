@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/23 13:22:32 by nbuquet-         ###   ########.fr       */
+/*   Created: 2025/07/23 11:39:15 by nbuquet-          #+#    #+#             */
+/*   Updated: 2025/07/23 11:39:24 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int	main(int ac, char *av[])
+int	ft_max(int a, int b)
 {
-	char	*file;
-	t_map	map;
-
-	if (ac != 2)
-		ft_error();
-	file = read_file(av[1]);
-	map = start_map(file);
-	mlx(map);
-	free(file);
-	free_map(map.map, map.width);
+	if (a > b)
+		return (a);
+	return (b);
 }

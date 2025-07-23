@@ -6,7 +6,7 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 16:47:22 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 17:56:15 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:49:21 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	custom_map_error(char *file, int *size)
 {
-	char *error;
+	char	*error;
 
 	error = strerror(1);
 	write(STDERR_FILENO, ": ", 2);
@@ -27,7 +27,7 @@ void	custom_map_error(char *file, int *size)
 
 void	custom_size_error(char *file)
 {
-	char *error;
+	char	*error;
 
 	error = strerror(1);
 	write(STDERR_FILENO, ": ", 2);
@@ -39,7 +39,7 @@ void	custom_size_error(char *file)
 
 void	ft_error(void)
 {
-	char *error;
+	char	*error;
 
 	error = strerror(1);
 	write(STDERR_FILENO, ": ", 2);

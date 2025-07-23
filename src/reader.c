@@ -6,13 +6,13 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:10:27 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 18:02:20 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/23 13:19:14 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-char	*buffer_alloc(void)
+static char	*buffer_alloc(void)
 {
 	char	*buffer;
 
@@ -23,22 +23,31 @@ char	*buffer_alloc(void)
 	return (buffer);
 }
 
-char	*buffer_concat(char *old_buf, char *tmp, int total, int bytes)
+static char	*buffer_concat(char *old_buf, char *tmp, int total, int bytes)
 {
 	char	*new_buf;
+	int		i;
 
 	new_buf = malloc(total + bytes + 1);
 	if (!new_buf)
 		return (NULL);
-	for (int i = 0; i < total; i++)
+	i = 0;
+	while (i < total)
+	{
 		new_buf[i] = old_buf[i];
-	for (int i = 0; i < bytes; i++)
+		i++;
+	}
+	i = 0;
+	while (i < bytes)
+	{
 		new_buf[total + i] = tmp[i];
+		i++;
+	}
 	new_buf[total + bytes] = '\0';
 	return (new_buf);
 }
 
-char	*read_map(int fd)
+static char	*read_map(int fd)
 {
 	char	*buffer;
 	char	*new_buf;
@@ -50,7 +59,8 @@ char	*read_map(int fd)
 	buffer = buffer_alloc();
 	if (!buffer)
 		return (NULL);
-	while ((bytes = read(fd, tmp, 8192)) > 0)
+	bytes = read(fd, tmp, 8192);
+	while (bytes > 0)
 	{
 		tmp[bytes] = '\0';
 		new_buf = buffer_concat(buffer, tmp, total, bytes);
@@ -59,6 +69,7 @@ char	*read_map(int fd)
 		free(buffer);
 		buffer = new_buf;
 		total += bytes;
+		bytes = read(fd, tmp, 8192);
 	}
 	if (bytes < 0)
 		return (perror("Error al leer el archivo"), free(buffer), NULL);

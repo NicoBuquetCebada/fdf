@@ -6,13 +6,13 @@
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:38:10 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/22 17:56:11 by nbuquet-         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:51:21 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	while_wspace_inc(int *i, int *y, int *x, char *map)
+static void	while_wspace_inc(int *i, int *y, int *x, char *map)
 {
 	while (map[*i] && (map[*i] == ' ' || map[*i] == '\t' || map[*i] == '\n'))
 	{
@@ -25,7 +25,7 @@ void	while_wspace_inc(int *i, int *y, int *x, char *map)
 	}
 }
 
-void	while_not_wspace_inc(int *i, char *map)
+static void	while_not_wspace_inc(int *i, char *map)
 {
 	while (map[*i] && map[*i] != ' ' && map[*i] != '\t' && map[*i] != '\n')
 		(*i)++;
@@ -45,7 +45,7 @@ static t_point	parse_values(char *str, int len, int x, int y)
 		*comma = '\0';
 		dst = new_point(x, y, ft_atoi(str), ft_substr(comma + 1, 0, len));
 	}
-	else 
+	else
 		dst = new_point(x, y, ft_atoi(str), NULL);
 	str[len] = t;
 	return (dst);
@@ -72,7 +72,7 @@ t_point	**map_parser(char *map, int *size)
 			break ;
 		start = i;
 		while_not_wspace_inc(&i, map);
-		dst[y][x] = parse_values(map + start, i - start, x, y);//insert_values(x, y, ft_split(ft_substr(map, start, i - start), ','));
+		dst[y][x] = parse_values(map + start, i - start, x, y);
 		x++;
 	}
 	return (dst);

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   point.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuquet- <nbuquet-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 16:52:09 by nbuquet-          #+#    #+#             */
-/*   Updated: 2025/07/23 13:22:32 by nbuquet-         ###   ########.fr       */
+/*   Created: 2025/07/16 16:42:03 by nbuquet-          #+#    #+#             */
+/*   Updated: 2025/07/23 11:32:13 by nbuquet-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int ac, char *av[])
+void	free_point(t_point *point)
 {
-	char	*file;
-	t_map	map;
+	if (point->color)
+	{
+		free(point->color);
+		point->color = NULL;
+	}
+}
 
-	if (ac != 2)
-		ft_error();
-	file = read_file(av[1]);
-	map = start_map(file);
-	mlx(map);
-	free(file);
-	free_map(map.map, map.width);
+t_point	new_point(int x, int y, int z, char *color)
+{
+	t_point	point;
+
+	point.x = x;
+	point.y = y;
+	point.z = z;
+	point.color = color;
+	return (point);
 }
